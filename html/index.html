@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="vieww" content="description" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="mask-icon" href="../images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <div class="navbar">
+      <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+      <a href="#"><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;My Documents</a>
+    </div>
+    
+      <img src="../images/Bionic Engineers Logo - Transparent.png" width="40px" height="50px">
+      <div class="resume" id="resume">
+          <img id="pic" src="https://cdn4.iconfinder.com/data/icons/e-commerce-181/512/477_profile__avatar__man_-512.png" onclick="changeImage()">
+          <div class="intro">
+            <p contenteditable="true" style="font-weight:900;font-size: 30;width: fit-content;color: black;">Your Name Here</p>
+            <p contenteditable="true" style="font-weight:bold;font-size: 18;width: fit-content;color: grey;">Designation</p>
+            <p contenteditable="true" style="font-weight: bold;font-size: 15;width: fit-content;height: fit-content;color:black">Your Bio</p>
+          </div>
+          <div class="social">
+            <p contenteditable="true" style="display: inline;margin-right: 270px;"><i class="fa fa-envelope icon"></i>&nbsp abc@example.com</p>
+            <p contenteditable="true" style="display: inline;margin-right: 270px;"><i class="fa fa-phone"></i>&nbsp Your Number</p>
+            <p contenteditable="true" style="display: inline;"><i class="fa fa-map-marker"></i>&nbsp Location</p>
+          </div>
+          <h3 style="width: fit-content;" >EDUCATION</h3>
+          <div class="education" id="ed">
+            <input placeholder="Study Program" type="text"><br>
+            <input placeholder="Institute" type="text"><br>
+            <input placeholder="Year of Completion" type="number"><br>
+            <textarea placeholder="Description"></textarea>
+            <br><br>
+            <input placeholder="Study Program" type="text"><br>
+            <input placeholder="Institute" type="text"><br>
+            <input placeholder="Year of Completion" type="number"><br>
+            <textarea placeholder="Description"></textarea>
+          </div>
+          <h3 style="width: fit-content;">WORK EXPERIENCE</h3>
+          <div class="work">
+            <input placeholder="Position" type="text"><br>
+            <input placeholder="Work Place" type="text"><br>
+            <input placeholder="No. of Years" type="number"><br>
+            <textarea placeholder="Description"></textarea>
+          </div>
+          <h3 class="right" style="width: fit-content;">SKILLS</h3>
+          <div class="tabs">
+            <input placeholder="Your Skills" type="text">
+          </div>
+          <h3 class="right" style="width: fit-content;">PERSONAL PROJECTS</h3>
+          <div class="tabs">
+            <input placeholder="Project Name" type="text"><br>
+            <input placeholder="Subject" type="text"><br>
+            <input placeholder="Year of Completion" type="number"><br>
+            <textarea placeholder="Description"></textarea>
+          </div>
+          <h3 class="right" style="width: fit-content;">CERTIFICATES</h3>
+          <div class="tabs">
+            <input placeholder="Certification Name" type="text"><br>
+            <input placeholder="Year of Completion" type="number"><br>
+            <textarea placeholder="Description"></textarea>
+          </div>
+          <h3 class="right" style="width: fit-content;">LANGUAGES</h3>
+          <div class="tabs">
+            <input placeholder="Languages you know" type="text">
+          </div>
+          <h3 class="right">INTERESTS</h3>
+          <div class="tabs">
+            <input placeholder="Your Interests" type="text">
+          </div>
+      </div>
+      <div class="save">
+        <button onclick="download()">Save and Download &nbsp;<i class="fa fa-download"></i></button>
+      </div>
+      
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  <script>
+    function changeImage() {
+        var image = document.getElementById("pic");
+        var sel=document.getElementById("myfile").value;
+        image.src=sel;
+        }
+    function download(){
+      var divcontents=document.getElementById("resume").innerHTML;
+      var a=window.open('','','height=700,width=900');
+      a.document.write('<html>');
+      a.document.write('<body>');
+      a.document.write('<link rel="stylesheet" href="../css/index.css" />');
+      a.document.write(divcontents);
+      a.document.write('</body></html>');
+      a.document.close();
+      a.print();
+    }
+  </script>
+  
+  
